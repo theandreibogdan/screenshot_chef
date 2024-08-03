@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screenshot Chef</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="menu">
+      <div class="menu--header">
+        <img class="menu--img" src="./icon.png" alt="" />
+        <h1 class="menu--h1">Screenshot Chef</h1>
+      </div>
+      <div class="backgroundSelector">
+        <h2 class="backgroundSelector--h2">Background</h2>
+        <div class="backgroundSelector--backgrounds">
+          <div
+            onclick="add_bg_1()"
+            class="backgroundSelector--backgrounds--bg1 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_2()"
+            class="backgroundSelector--backgrounds--bg2 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_3()"
+            class="backgroundSelector--backgrounds--bg3 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_4()"
+            class="backgroundSelector--backgrounds--bg4 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_5()"
+            class="backgroundSelector--backgrounds--bg5 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_6()"
+            class="backgroundSelector--backgrounds--bg6 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_7()"
+            class="backgroundSelector--backgrounds--bg7 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_8()"
+            class="backgroundSelector--backgrounds--bg8 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_9()"
+            class="backgroundSelector--backgrounds--bg9 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_10()"
+            class="backgroundSelector--backgrounds--bg10 selectBackground"
+          ></div>
+          <div
+            onclick="add_bg_11()"
+            class="backgroundSelector--backgrounds--bg11 selectBackground"
+          ></div>
+          <div class="backgroundSelector--backgrounds--bg12">
+            <p class="backgroundSelector--backgrounds--bg12--plus">+</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="paddingSelector">
+        <h2 class="sliderSelector--h2">Padding</h2>
+        <div class="paddingSlideContainer">
+          <input
+            type="range"
+            min="10"
+            max="100"
+            value="24"
+            step="1"
+            class="slider"
+            id="paddingSlider"
+          />
+        </div>
+      </div>
+
+      <div class="borderRadiusSelector">
+        <h2 class="sliderSelector--h2">Border Radius</h2>
+        <div class="borderRadiusSlideContainer">
+          <input
+            type="range"
+            min="0"
+            max="200"
+            value="8"
+            step="1"
+            class="slider"
+            id="borderRadiusSlider"
+          />
+        </div>
+      </div>
+
+      <div class="scaleSelector">
+        <h2 class="sliderSelector--h2">Scale</h2>
+        <div class="scaleSlideContainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="100"
+            step="1"
+            class="slider"
+            id="scaleSlider"
+          />
+        </div>
+      </div>
+
+      <div class="shadowBlurSelector">
+        <h2 class="sliderSelector--h2">Shadow Blur</h2>
+        <div class="shadowBlurSlideContainer">
+          <input
+            type="range"
+            min="0"
+            max="50"
+            value="5"
+            step="1"
+            class="slider"
+            id="shadowBlurSlider"
+          />
+        </div>
+      </div>
+
+      <div class="shadowSizeSelector">
+        <h2 class="sliderSelector--h2">Shadow Size</h2>
+        <div class="shadowSizeSlideContainer">
+          <input
+            type="range"
+            min="0"
+            max="20"
+            value="4"
+            class="slider"
+            id="shadowSizeSlider"
+          />
+        </div>
+      </div>
+
+      <div class="widthSelector">
+        <h2 class="sliderSelector--h2">Width</h2>
+        <div class="widthSlideContainer">
+          <input
+            type="range"
+            min="0"
+            max="850"
+            value="850"
+            step="1"
+            class="slider"
+            id="widthSlider"
+          />
+        </div>
+      </div>
+
+      <div class="heightSelector">
+        <h2 class="sliderSelector--h2">Height</h2>
+        <div class="heightSlideContainer">
+          <input
+            type="range"
+            min="1"
+            max="600"
+            value="300"
+            step="1"
+            class="slider"
+            id="heightSizeSlider"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="preview">
+      <div onclick="upload_image()">
+        <input
+          onchange="inputToURL(this)"
+          type="file"
+          id="file"
+          style="opacity: 0; width: 0; height: 0"
+        />
+        <label class="upload-button" for="file" id="myFile" name="filename">
+          <i class="fa-solid fa-upload"></i>Upload Image
+        </label>
+      </div>
+      <div class="actual-preview">
+        <div id="photo-bg" class="preview--background1">
+          <img class="preview--image" id="image" src="test.png" alt="" />
+        </div>
+      </div>
+      <div onclick="download_image()" class="download-button">
+        <i class="fa-solid fa-download"></i>Download
+      </div>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/177af4a6fe.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
